@@ -15,18 +15,15 @@
         tachiage: tachiage {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&kp LA(LC(M))>, <&macro_tap>;
-
+            bindings = <&kp LA(LC(M)) &kp LC(LA(W))>;
             label = "TACHIAGE";
         };
 
-        new_macro: new_macro {
+        address: address {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&kp A>, <&macro_press>, <&kp B>, <&macro_press>;
-
-            label = "NEW_MACRO";
-            wait-ms = <100>;
+            bindings = <&kp O &kp G &kp A &kp S &kp H &kp I &kp R &kp O &kp AT &kp S &kp Q &kp U &kp A &kp R &kp E &kp MINUS &kp E &kp N &kp I &kp X &kp DOT &kp C &kp O &kp M>;
+            label = "ADDRESS";
         };
     };
 
@@ -36,28 +33,28 @@
         base {
             display-name = "BASE";
             bindings = <
-&kp ESCAPE  &kp Q  &kp W  &kp E  &kp R  &kp T  &kp Y  &kp U  &kp I  &kp O  &kp P  &kp DELETE  &kp LEFT_SHIFT  &kp A  &kp S  &kp D  &kp F  &kp G  &kp H  &kp J  &kp K  &kp L  &kp MINUS  &kp RIGHT_CONTROL  &kp LEFT_ALT  &kp Z  &kp X  &kp C  &kp V  &kp B  &kp N  &kp M  &kp COMMA  &kp DOT  &kp FSLH  &kp NUMBER_1  &lt 2 LANGUAGE_1  &kp SPACE  &lt 1 LANGUAGE_2  &kp BACKSPACE  &kp RET  &lt 3 TAB
+&mkp MB3  &kp Q  &kp W  &kp E  &kp R  &kp T  &kp Y  &kp U  &kp I  &kp O  &kp P  &kp BACKSPACE  &mkp MB1  &kp A  &kp S  &kp D  &kp F  &kp G  &kp H  &kp J  &kp K  &kp L  &kp MINUS  &kp RIGHT_CONTROL  &mkp MB2  &kp Z  &kp X  &kp C  &kp V  &kp B  &kp N  &kp M  &kp COMMA  &kp DOT  &kp FSLH  &kp NUMBER_1  &lt 5 LANGUAGE_1  &kp SPACE  &lt 1 LANGUAGE_2  &kp RIGHT_SHIFT  &kp RET  &lt 2 TAB
             >;
         };
 
         nav {
             display-name = "123";
             bindings = <
-&trans  &mt F1 F2  &mt F3 F4  &mt F5 F6  &mt F7 F8  &kp LEFT_BRACKET  &kp RIGHT_BRACKET  &kp N7  &kp N8  &kp N9  &kp BACKSLASH  &trans  &trans  &kp LEFT_ARROW  &kp DOWN_ARROW  &kp UP_ARROW  &kp RIGHT_ARROW  &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp NUMBER_4  &kp N5  &kp NUMBER_6  &kp SEMICOLON  &trans  &trans  &mkp MB1  &mkp MB4  &mkp MB5  &mkp MB2  &mkp MB3  &kp NUMBER_0  &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp UNDERSCORE  &kp AT_SIGN  &trans  &trans  &trans  &trans  &trans  &trans
+&kp ESCAPE  &mt F1 F2  &mt F3 F4  &mt F5 F6  &mt F7 F8  &kp LEFT_BRACKET  &kp RIGHT_BRACKET  &kp N7  &kp N8  &kp N9  &kp BACKSLASH  &trans  &none  &kp LEFT_ARROW  &kp DOWN_ARROW  &kp UP_ARROW  &kp RIGHT_ARROW  &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp NUMBER_4  &kp N5  &kp NUMBER_6  &kp SEMICOLON  &trans  &none  &mkp MB1  &mkp MB4  &mkp MB5  &mkp MB2  &mkp MB3  &kp NUMBER_0  &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp UNDERSCORE  &kp AT_SIGN  &trans  &trans  &trans  &trans  &trans  &trans
+            >;
+        };
+
+        sys {
+            display-name = "SYST";
+            bindings = <
+&none  &none  &none  &none  &none  &none  &bt BT_CLR  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &studio_unlock  &kp LCTRL  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &kp LSHFT  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &kp LGUI  &none  &kp SPACE  &kp RET  &none  &kp RALT
             >;
         };
 
         mcr {
             display-name = "MCR";
             bindings = <
-&trans  &trans  &kp F7  &kp F8  &kp F9  &kp F12  &kp C_VOL_DN  &kp C_MUTE  &kp C_VOL_UP  &trans  &trans  &kp BSPC  &trans  &kp LC(LS(N9))  &kp LC(LA(TAB))  &kp LS(LG(S))  &kp LC(C)  &kp LC(Z)  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &kp LC(LS(N9))  &kp F1  &kp F2  &kp LC(V)  &new_macro  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &kp RET  &mo 3  &kp RALT
-            >;
-        };
-
-        sym {
-            display-name = "SYST";
-            bindings = <
-&none  &none  &none  &none  &none  &none  &bt BT_CLR  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &studio_unlock  &kp LCTRL  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &kp LSHFT  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &kp LGUI  &none  &kp SPACE  &kp RET  &none  &kp RALT
+&tachiage  &trans  &kp F7  &kp F8  &kp F9  &kp F12  &kp C_VOL_DN  &kp C_MUTE  &kp C_VOL_UP  &trans  &trans  &kp BSPC  &trans  &kp LC(LS(N9))  &kp LC(LA(TAB))  &kp LS(LG(S))  &kp LC(C)  &kp LC(Z)  &trans  &trans  &trans  &trans  &trans  &trans  &kp LC(LA(DEL))  &kp LC(LS(N9))  &kp F1  &kp F2  &kp LC(V)  &address  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &kp RET  &mo 5  &kp RALT
             >;
         };
 
