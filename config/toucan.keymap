@@ -22,7 +22,7 @@
         tachiage: tachiage {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&kp LA(LC(M))>, <&macro_tap>, <&kp>;
+            bindings = <&kp LA(LC(M))>, <&macro_tap>;
 
             label = "TACHIAGE";
         };
@@ -30,7 +30,7 @@
         new_macro: new_macro {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&kp A>, <&macro_press>, <&kp B>;
+            bindings = <&kp A>, <&macro_press>, <&kp B>, <&macro_press>;
 
             label = "NEW_MACRO";
             wait-ms = <100>;
