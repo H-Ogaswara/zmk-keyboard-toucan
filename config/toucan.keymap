@@ -1,6 +1,7 @@
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/keys.h>
+#include <dt-bindings/zmk/pointing.h>
 
 #define BASE 0
 #define NAV  1
@@ -12,8 +13,27 @@
         compatible = "zmk,conditional-layers";
 
         tri_layer {
-            if-layers = <1 2>;
-            then-layer = <3>;
+            if-layers = <1 3>;
+            then-layer = <2>;
+        };
+    };
+
+    macros {
+        tachiage: tachiage {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LA(LC(M))>, <&macro_tap>, <&kp>;
+
+            label = "TACHIAGE";
+        };
+
+        new_macro: new_macro {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp A>, <&macro_press>, <&kp B>;
+
+            label = "NEW_MACRO";
+            wait-ms = <100>;
         };
     };
 
@@ -28,23 +48,23 @@
         };
 
         nav {
-            display-name = "NAV";
+            display-name = "123";
             bindings = <
-&trans  &trans  &trans  &trans  &trans  &kp LEFT_BRACKET  &kp RIGHT_BRACKET  &kp N7  &kp N8  &kp N9  &kp BACKSLASH  &trans  &trans  &kp LEFT_ARROW  &kp DOWN_ARROW  &kp UP_ARROW  &kp RIGHT_ARROW  &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp NUMBER_4  &kp N5  &kp NUMBER_6  &kp SEMICOLON  &trans  &trans  &studio_unlock  &trans  &trans  &trans  &trans  &kp NUMBER_0  &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp UNDERSCORE  &kp AT_SIGN  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &mt F1 F2  &mt F3 F4  &mt F5 F6  &mt F7 F8  &kp LEFT_BRACKET  &kp RIGHT_BRACKET  &kp N7  &kp N8  &kp N9  &kp BACKSLASH  &trans  &trans  &kp LEFT_ARROW  &kp DOWN_ARROW  &kp UP_ARROW  &kp RIGHT_ARROW  &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp NUMBER_4  &kp N5  &kp NUMBER_6  &kp SEMICOLON  &trans  &trans  &mkp MB1  &mkp MB4  &mkp MB5  &mkp MB2  &mkp MB3  &kp NUMBER_0  &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp UNDERSCORE  &kp AT_SIGN  &trans  &trans  &trans  &trans  &trans  &trans
+            >;
+        };
+
+        mcr {
+            display-name = "MCR";
+            bindings = <
+&trans  &trans  &kp F7  &kp F8  &kp F9  &kp F12  &kp C_VOL_DN  &kp C_MUTE  &kp C_VOL_UP  &trans  &trans  &kp BSPC  &trans  &kp LC(LS(N9))  &kp LC(LA(TAB))  &kp LS(LG(S))  &kp LC(C)  &kp LC(Z)  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &kp LC(LS(N9))  &kp F1  &kp F2  &kp LC(V)  &new_macro  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &kp RET  &mo 3  &kp RALT
             >;
         };
 
         sym {
-            display-name = "SYM";
+            display-name = "SYST";
             bindings = <
-&kp TAB  &kp EXCL  &kp AT  &kp HASH  &kp DLLR  &kp PRCNT  &kp CARET  &kp AMPS  &kp KP_MULTIPLY  &kp LPAR  &kp RPAR  &kp BSPC  &kp LCTRL  &trans  &trans  &trans  &trans  &trans  &kp MINUS  &kp EQUAL  &kp LBKT  &kp RBKT  &kp BSLH  &kp GRAVE  &kp LSHFT  &trans  &trans  &trans  &trans  &trans  &kp UNDER  &kp PLUS  &kp LBRC  &kp RBRC  &kp PIPE  &kp TILDE  &kp LGUI  &trans  &kp SPACE  &kp RET  &trans  &kp RALT
-            >;
-        };
-
-        adj {
-            display-name = "ADJ";
-            bindings = <
-&mo TAB  &trans  &kp F7  &kp F8  &kp F9  &kp F12  &kp C_VOL_DN  &kp C_MUTE  &kp C_VOL_UP  &trans  &trans  &kp BSPC  &kp LCTRL  &trans  &kp F4  &kp F5  &kp F6  &kp F11  &trans  &trans  &trans  &trans  &trans  &trans  &bt LSHFT  &trans  &kp F1  &kp F2  &kp F3  &kp F10  &trans  &trans  &trans  &trans  &trans  &trans  &kp LGUI  &mo NAV  &kp SPACE  &kp RET  &mo 2  &kp RALT
+&none  &none  &none  &none  &none  &none  &bt BT_CLR  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &studio_unlock  &kp LCTRL  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &kp LSHFT  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &kp LGUI  &none  &kp SPACE  &kp RET  &none  &kp RALT
             >;
         };
 
