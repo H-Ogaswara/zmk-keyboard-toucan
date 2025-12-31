@@ -33,7 +33,7 @@
         base {
             display-name = "BASE";
             bindings = <
-&mkp MB3  &kp Q  &kp W  &kp E  &kp R  &kp T  &kp Y  &kp U  &kp I  &kp O  &kp P  &kp BACKSPACE  &mkp MB1  &kp A  &kp S  &kp D  &kp F  &kp G  &kp H  &kp J  &kp K  &kp L  &kp MINUS  &kp RIGHT_CONTROL  &mkp MB2  &kp Z  &kp X  &kp C  &kp V  &kp B  &kp N  &kp M  &kp COMMA  &kp DOT  &kp FSLH  &kp NUMBER_1  &lt 3 LANGUAGE_1  &kp SPACE  &lt 1 LANGUAGE_2  &kp RIGHT_SHIFT  &kp RET  &lt 2 TAB
+&mkp MB3  &kp Q  &kp W  &kp E  &kp R  &kp T  &kp Y  &kp U  &kp I  &kp O  &kp P  &kp BACKSPACE  &mkp MB1  &kp A  &kp S  &kp D  &kp F  &kp G  &kp H  &kp J  &kp K  &kp L  &kp MINUS  &kp RIGHT_CONTROL  &mkp MB2  &kp Z  &kp X  &kp C  &kp V  &kp B  &kp N  &kp M  &kp COMMA  &kp DOT  &kp FSLH  &kp NUMBER_1  &lt 2 LANGUAGE_1  &kp SPACE  &lt 1 LANGUAGE_2  &kp RIGHT_SHIFT  &kp RET  &lt 3 TAB
             >;
         };
 
@@ -44,17 +44,17 @@
             >;
         };
 
-        sys {
-            display-name = "SYST";
-            bindings = <
-&none  &none  &none  &kp C_VOLUME_DOWN  &kp C_VOL_UP  &kp C_MUTE  &bt BT_CLR  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &studio_unlock  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &trans  &kp LEFT_GUI  &trans  &none  &none  &trans
-            >;
-        };
-
         mcr {
             display-name = "MCR";
             bindings = <
 &kp LA(F4)  &none  &none  &none  &none  &none  &kp RC(RS(TAB))  &kp RG(UP_ARROW)  &none  &none  &none  &kp RC(RS(NUMBER_1))  &tachiage  &kp LC(Z)  &kp LC(Y)  &kp LC(LEFT)  &kp LC(RIGHT)  &kp LC(N0)  &kp RC(TAB)  &kp RG(DOWN)  &kp RS(RG(S))  &kp RA(RC(TAB))  &kp RC(RS(N9))  &none  &kp LC(LA(DEL))  &none  &none  &none  &kp RC(S)  &kp RC(RA(S))  &kp RC(RS(N))  &kp RC(N)  &none  &none  &kp RC(W)  &none  &trans  &trans  &trans  &trans  &trans  &trans
+            >;
+        };
+
+        sys {
+            display-name = "SYST";
+            bindings = <
+&none  &none  &none  &kp C_VOLUME_DOWN  &kp C_VOL_UP  &kp C_MUTE  &bt BT_CLR  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &studio_unlock  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &trans  &kp LEFT_GUI  &trans  &none  &none  &trans
             >;
         };
 
