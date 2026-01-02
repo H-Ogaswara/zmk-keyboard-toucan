@@ -40,7 +40,7 @@
         nav {
             display-name = "123";
             bindings = <
-&kp ESCAPE  &mt F2 F1  &mt F4 F3  &mt F6 F5  &mt F8 F7  &kp RIGHT_BRACKET  &kp NON_US_HASH  &kp N7  &kp N8  &kp N9  &kp BACKSLASH  &trans  &address  &kp LEFT_ARROW  &kp DOWN_ARROW  &kp UP_ARROW  &kp RIGHT_ARROW  &kp LS(N9)  &kp LS(N0)  &kp NUMBER_4  &kp N5  &kp NUMBER_6  &kp SEMICOLON  &trans  &none  &none  &none  &none  &mkp MB4  &mkp MB5  &kp NUMBER_0  &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp LS(NON_US_BSLH)  &kp LEFT_BRACKET  &trans  &trans  &trans  &trans  &trans  &trans
+&kp ESCAPE  &mt F2 F1  &mt F4 F3  &mt F6 F5  &mt F8 F7  &kp RIGHT_BRACKET  &kp NON_US_HASH  &kp N7  &kp N8  &kp N9  &kp BACKSLASH  &trans  &address  &kp LEFT_ARROW  &kp DOWN_ARROW  &kp UP_ARROW  &kp RIGHT_ARROW  &kp LS(N8)  &kp LS(N9)  &kp NUMBER_4  &kp N5  &kp NUMBER_6  &kp SEMICOLON  &trans  &none  &none  &none  &none  &mkp MB4  &mkp MB5  &kp NUMBER_0  &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp LS(INT_RO)  &kp LEFT_BRACKET  &trans  &trans  &trans  &trans  &trans  &trans
             >;
         };
 
