@@ -9,13 +9,21 @@
 #define ADJ  3
 
 / {
-    conditional_layers { compatible = "zmk,conditional-layers"; };
+    conditional_layers {
+        compatible = "zmk,conditional-layers";
+
+        sys {
+            if-layers = <1 2>;
+            then-layer = <3>;
+        };
+    };
 
     macros {
         tachiage: tachiage {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&kp LA(LC(M)) &kp LC(LA(W))>;
+            bindings = <&kp LA(LC(M))>, <&macro_wait_time 100>, <&kp LC(LA(W))>;
+
             label = "TACHIAGE";
         };
 
@@ -33,7 +41,7 @@
         base {
             display-name = "BASE";
             bindings = <
-&mo 3  &kp Q  &kp W  &kp E  &kp R  &kp T  &kp Y  &kp U  &kp I  &kp O  &kp P  &kp TAB  &mkp MB1  &kp A  &kp S  &kp D  &kp F  &kp G  &kp H  &kp J  &kp K  &kp L  &kp MINUS  &kp RIGHT_CONTROL  &mkp MB2  &kp Z  &kp X  &kp C  &kp V  &kp B  &kp N  &kp M  &kp COMMA  &kp DOT  &kp SLASH  &kp NUMBER_1  &kp LEFT_SHIFT  &kp SPACE  &lt 1 LANG1  &lt 2 LANGUAGE_2  &kp ENTER  &kp BACKSPACE
+&kp TAB  &kp Q  &kp W  &kp E  &kp R  &kp T  &kp Y  &kp U  &kp I  &kp O  &kp P  &kp DEL  &mkp MB1  &kp A  &kp S  &kp D  &kp F  &kp G  &kp H  &kp J  &kp K  &kp L  &kp MINUS  &kp BACKSPACE  &mkp MB2  &kp Z  &kp X  &kp C  &kp V  &kp B  &kp N  &kp M  &kp COMMA  &kp DOT  &kp SLASH  &kp NUMBER_1  &kp LEFT_SHIFT  &kp SPACE  &lt 2 LANG1  &lt 1 LANGUAGE_2  &kp ENTER  &kp RIGHT_CONTROL
             >;
         };
 
@@ -47,14 +55,14 @@
         mcr {
             display-name = "MCR";
             bindings = <
-&kp LA(F4)  &none  &none  &none  &kp LC(LS(TAB))  &kp LG(UP_ARROW)  &none  &none  &none  &none  &none  &kp RC(RS(NUMBER_1))  &tachiage  &kp LC(LS(N9))  &kp LC(LA(TAB))  &kp LS(LG(S))  &kp LC(TAB)  &kp LG(DOWN)  &kp RC(N0)  &kp RC(C)  &kp RC(V)  &kp RC(Z)  &kp RC(Y)  &none  &kp LC(LA(DEL))  &kp LC(W)  &none  &none  &kp RC(S)  &kp RC(RA(S))  &kp RC(RS(N))  &kp RC(N)  &none  &none  &none  &none  &trans  &trans  &trans  &trans  &trans  &trans
+&kp LA(F4)  &none  &none  &none  &kp LC(LS(TAB))  &kp LG(UP_ARROW)  &kp RC(SEMI)  &none  &none  &none  &none  &kp RC(RS(NUMBER_1))  &none  &kp LC(LS(N9))  &kp LC(LA(TAB))  &kp LS(LG(S))  &kp LC(TAB)  &kp LG(DOWN)  &kp RC(N0)  &kp RC(C)  &kp RC(V)  &kp RC(Z)  &kp RC(Y)  &none  &none  &kp LC(W)  &kp LC(LS(N))  &kp LC(N)  &kp RC(S)  &kp RC(RA(S))  &kp RC(MINUS)  &kp RC(RA(O))  &kp RC(RA(I))  &kp RC(RA(L))  &kp RC(RA(Y))  &none  &trans  &trans  &trans  &trans  &trans  &trans
             >;
         };
 
         sys {
             display-name = "SYST";
             bindings = <
-&none  &none  &none  &kp C_VOLUME_DOWN  &kp C_VOL_UP  &kp C_MUTE  &bt BT_CLR  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &studio_unlock  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &trans  &kp LEFT_GUI  &trans  &none  &none  &trans
+&kp RC(RA(DEL))  &none  &none  &kp C_VOLUME_DOWN  &kp C_VOL_UP  &kp C_MUTE  &bt BT_CLR  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &none  &tachiage  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &studio_unlock  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &trans  &kp LEFT_GUI  &trans  &trans  &none  &trans
             >;
         };
 
