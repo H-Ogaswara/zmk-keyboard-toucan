@@ -62,7 +62,7 @@ jobs:
         env:
           board: ${{ matrix.board }}
           shield: ${{ matrix.shield }}
-          artifact_name: ${{ matrix.artifact-name }}
+          artifact_name: ${{ matrix['artifact-name'] }}
           snippet: ${{ matrix.snippet }}
         run: |
           if [ -e zephyr/module.yml ]; then
@@ -157,7 +157,7 @@ jobs:
             -- \
             -DZMK_CONFIG=${{ env.base_dir }}/${{ inputs.config_path }} \
             ${{ env.extra_cmake_args }} \
-            ${{ matrix.cmake-args }}
+            ${{ matrix['cmake-args'] }}
 
       - name: Rename artifacts
         shell: sh -x {0}
