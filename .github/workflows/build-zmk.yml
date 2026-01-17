@@ -48,6 +48,16 @@ jobs:
           set -x
           west zephyr-export
 
+      # Added: inspect where shields are located (after west update, before west build)
+      - name: Debug: list shield dirs
+        shell: sh
+        run: |
+          set -x
+          echo "===== repo boards/shields ====="
+          find "${GITHUB_WORKSPACE}/boards/shields" -maxdepth 2 -type d -print 2>/dev/null || true
+          echo "===== config boards/shields ====="
+          find "${GITHUB_WORKSPACE}/${{ inputs.config_path }}/boards/shields" -maxdepth 2 -type d -print 2>/dev/null || true
+
       - name: Build
         shell: sh
         run: |
