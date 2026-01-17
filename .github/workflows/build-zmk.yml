@@ -119,10 +119,6 @@ jobs:
         working-directory: ${{ env.base_dir }}
         run: west update --fetch-opt=--filter=tree:0
 
-      - name: West Zephyr export
-        working-directory: ${{ env.base_dir }}
-        run: west zephyr-export
-
       - name: Debug: show config actually used
         working-directory: ${{ env.base_dir }}
         shell: sh -x {0}
