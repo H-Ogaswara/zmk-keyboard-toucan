@@ -1,4 +1,4 @@
-name: Build ZMK firmware (debug minimal)
+name: Build ZMK firmware debug minimal
 
 on:
   workflow_call:
@@ -48,8 +48,7 @@ jobs:
           set -x
           west zephyr-export
 
-      # Added: inspect where shields are located (after west update, before west build)
-      - name: "Debug: list shield dirs"
+      - name: Debug list shield dirs
         shell: sh
         run: |
           set -x
