@@ -14,32 +14,20 @@ jobs:
     runs-on: ubuntu-latest
     container:
       image: zmkfirmware/zmk-build-arm:stable
-    strategy:
-      fail-fast: false
-      matrix:
-        include:
-          - board: seeeduino_xiao_ble
-            shield: "toucan_right rgbled_adapter"
-            artifact_name: "toucan_right-rgbled_adapter-seeeduino_xiao_ble-zmk"
-          - board: seeeduino_xiao_ble
-            shield: "toucan_left rgbled_adapter nice_view_gem"
-            artifact_name: "toucan_left-rgbled_adapter-nice_view_gem-seeeduino_xiao_ble-zmk"
 
     steps:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Debug: list and show config used
+      - name: Debug list config
         shell: sh
         run: |
           set -x
-          echo "===== workspace config dir ====="
+          echo "===== config dir ====="
           ls -la "${{ inputs.config_path }}" || true
-
-          echo "===== show toucan.conf ====="
+          echo "===== toucan.conf ====="
           nl -ba "${{ inputs.config_path }}/toucan.conf" | sed -n '1,220p' || true
-
-          echo "===== grep old symbols in config dir ====="
+          echo "===== grep old symbols ====="
           grep -RIn "ZMK_SLEEP_TIMEOUT|BT_PERIPHERAL_PREF_SLAVE_LATENCY" "${{ inputs.config_path }}" || true
 
       - name: West Init
@@ -60,20 +48,11 @@ jobs:
           set -x
           west zephyr-export
 
-      - name: Build (${{ matrix.shield }} - ${{ matrix.board }})
+      - name: Build
         shell: sh
         run: |
           set -x
           build_dir="$(mktemp -d)"
-          west build -s zmk/app -d "${build_dir}" -b "${{ matrix.board }}" -- \
-            -DSHIELD="${{ matrix.shield }}" \
+          west build -s zmk/app -d "${build_dir}" -b seeeduino_xiao_ble -- \
+            -DSHIELD="toucan_right rgbled_adapter" \
             -DZMK_CONFIG="${GITHUB_WORKSPACE}/${{ inputs.config_path }}"
-
-          mkdir -p "${build_dir}/artifacts"
-          cp "${build_dir}/zephyr/zmk.uf2" "${build_dir}/artifacts/${{ matrix.artifact_name }}.uf2"
-
-      - name: Archive
-        uses: actions/upload-artifact@v4
-        with:
-          name: firmware
-          path: "**/artifacts/*.uf2"
