@@ -14,54 +14,36 @@ jobs:
     runs-on: ubuntu-latest
     container:
       image: zmkfirmware/zmk-build-arm:stable
-
     steps:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Debug list config
+      - name: Debug and Build
         shell: sh
         run: |
-          set -x
+          set -eux
+
           echo "===== config dir ====="
           ls -la "${{ inputs.config_path }}" || true
+
           echo "===== toucan.conf ====="
           nl -ba "${{ inputs.config_path }}/toucan.conf" | sed -n '1,220p' || true
+
           echo "===== grep old symbols ====="
           grep -RIn "ZMK_SLEEP_TIMEOUT|BT_PERIPHERAL_PREF_SLAVE_LATENCY" "${{ inputs.config_path }}" || true
 
-      - name: West Init
-        shell: sh
-        run: |
-          set -x
-          west init -l "${{ inputs.config_path }}"
-
-      - name: West Update
-        shell: sh
-        run: |
-          set -x
-          west update --fetch-opt=--filter=tree:0
-
-      - name: West Zephyr export
-        shell: sh
-        run: |
-          set -x
-          west zephyr-export
-
-      - name: Debug list shield dirs
-        shell: sh
-        run: |
-          set -x
           echo "===== repo boards/shields ====="
           find "${GITHUB_WORKSPACE}/boards/shields" -maxdepth 2 -type d -print 2>/dev/null || true
+
           echo "===== config boards/shields ====="
           find "${GITHUB_WORKSPACE}/${{ inputs.config_path }}/boards/shields" -maxdepth 2 -type d -print 2>/dev/null || true
 
-      - name: Build
-        shell: sh
-        run: |
-          set -x
+          west init -l "${{ inputs.config_path }}"
+          west update --fetch-opt=--filter=tree:0
+          west zephyr-export
+
           build_dir="$(mktemp -d)"
           west build -s zmk/app -d "${build_dir}" -b seeeduino_xiao_ble -- \
             -DSHIELD="toucan_right" \
             -DZMK_CONFIG="${GITHUB_WORKSPACE}/${{ inputs.config_path }}"
+
