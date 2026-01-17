@@ -64,5 +64,5 @@ jobs:
           set -x
           build_dir="$(mktemp -d)"
           west build -s zmk/app -d "${build_dir}" -b seeeduino_xiao_ble -- \
-            -DSHIELD="toucan_right;rgbled_adapter" \
+            -DSHIELD="toucan_right" \
             -DZMK_CONFIG="${GITHUB_WORKSPACE}/${{ inputs.config_path }}"
