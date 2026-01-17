@@ -22,7 +22,7 @@
         tachiage: tachiage {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&kp LC(LA(M))>, <&macro_wait_time 100>, <&kp LC(LA(W))>;
+            bindings = <&kp LC(LA(M))>, <&macro_wait_time 500>, <&kp LC(LA(W))>;
 
             label = "TACHIAGE";
         };
